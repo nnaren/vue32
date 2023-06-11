@@ -72,8 +72,8 @@ module.exports = {
   css: {
     loaderOptions: {
       sass: {
-        additionalData:   // 8版本用prependData: 
-        `
+        // 8版本用prependData:
+        prependData: `
           @import "@/styles/variables.scss";  // scss文件地址
           @import "@/styles/mixin.scss";     // scss文件地址
         `
