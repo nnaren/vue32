@@ -1,20 +1,20 @@
 <template>
   <div class="login-container">
-    <el-form ref="formRef" :model="form" class="login-form">
+    <el-form ref="formRef" :model="form" class="login-form" :rules="rules">
       <div class="title-container">
         <h3 class="title">用户登录</h3>
       </div>
-      <el-form-item>
-        <el-icon :size="20" class="svg-container">
-          <edit />
-        </el-icon>
+      <el-form-item prop="name">
+        <svg-icon icon="user" class="svg-container" />
         <el-input v-model="form.name"></el-input>
       </el-form-item>
-      <el-form-item>
-        <el-icon :size="20" class="svg-container">
-          <edit />
-        </el-icon>
-        <el-input v-model="form.password"></el-input>
+      <el-form-item prop="password">
+        <svg-icon icon="password" class="svg-container" />
+        <el-input v-model="form.password" :type="passwordType"></el-input>
+        <svg-icon
+          :icon="passwordType === 'password' ? 'eye' : 'eye-open'"
+          @click="changeType"
+        ></svg-icon>
       </el-form-item>
       <el-button class="login-button" type="primary">登录</el-button>
     </el-form>
@@ -23,11 +23,35 @@
 
 <script setup>
 import { ref } from 'vue'
-import { Edit } from '@element-plus/icons-vue'
 const form = ref({
   name: '',
   password: ''
 })
+const rules = ref({
+  name: [
+    {
+      required: true,
+      message: 'Please input Activity name',
+      trigger: 'blur'
+    }
+  ],
+  password: [
+    {
+      required: true,
+      message: 'Please input Activity name',
+      trigger: 'blur'
+    }
+  ]
+})
+
+const passwordType = ref('password')
+const changeType = () => {
+  if (passwordType.value === 'password') {
+    passwordType.value = 'text'
+  } else {
+    passwordType.value = 'password'
+  }
+}
 </script>
 
 <style lang="scss" scoped>
