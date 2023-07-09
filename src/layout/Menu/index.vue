@@ -72,7 +72,7 @@ const menusList = [
       {
         authName: '权限列表',
         id: 103,
-        path: 'rights2'
+        path: 'rights'
       }
     ],
     path: 'rights'
