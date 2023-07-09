@@ -30,7 +30,14 @@
           :label="item.label"
           :width="item.width"
         >
-          <template v-slot="{ row }" v-if="item.prop == 'mg_state'">
+          <template v-slot="{ row }" v-if="item.prop == 'role_name'">
+            <el-image
+              style="width: 100px; height: 100px"
+              :src="row.url"
+              :fit="fit"
+            />
+          </template>
+          <template v-slot="{ row }" v-else-if="item.prop == 'mg_state'">
             <el-switch v-model="row.mg_state" @change="changeState(row)" />
           </template>
           <template v-slot="{ row }" v-else-if="item.prop == 'create_time'">
@@ -88,22 +95,45 @@ const queryForm = ref({
 })
 const total = ref(2)
 const tableData = ref([])
+// const url = 'https://game.gtimg.cn/images/lol/act/img/champion/Annie.png'
 // let dialogTableValue = ref({})
 const nrUsers = [
   {
-    id: 592,
-    username: '老于',
-    email: 'naren@33.com',
+    id: 1,
+    username: '黑暗之女',
+    title: '安妮',
     mobile: '18888888888',
+    url: 'https://game.gtimg.cn/images/lol/act/img/champion/Annie.png',
     mg_state: true,
     role_name: '主管',
     create_time: 1486721486688
   },
   {
-    id: 593,
-    username: 'admin',
-    email: 'naren@33.com',
+    id: 2,
+    username: '狂战士',
+    title: '奥拉夫',
     mobile: '18888888888',
+    url: 'https://game.gtimg.cn/images/lol/act/img/champion/Olaf.png',
+    mg_state: true,
+    role_name: '业务员',
+    create_time: 1486721486688
+  },
+  {
+    id: 3,
+    username: '正义巨像',
+    title: '加里奥',
+    mobile: '18888888888',
+    url: 'https://game.gtimg.cn/images/lol/act/img/champion/Galio.png',
+    mg_state: true,
+    role_name: '业务员',
+    create_time: 1486721486688
+  },
+  {
+    id: 4,
+    username: '卡牌大师',
+    title: '崔斯特',
+    mobile: '18888888888',
+    url: 'https://game.gtimg.cn/images/lol/act/img/champion/TwistedFate.png',
     mg_state: true,
     role_name: '业务员',
     create_time: 1486721486688

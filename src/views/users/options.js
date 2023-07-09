@@ -1,18 +1,18 @@
 export const options = [
   {
-    label: 'username',
+    label: '名字',
     prop: 'username'
   },
   {
-    label: 'email',
-    prop: 'email'
+    label: '称呼',
+    prop: 'title'
   },
   {
     label: 'mobile',
     prop: 'mobile'
   },
   {
-    label: 'role_name',
+    label: '图片',
     prop: 'role_name'
   },
   {
